@@ -17,6 +17,7 @@
         android:title="@string/notifications" />
     <item
         android:id="@+id/navigation_delete"
+        android:icon="@drawable/ic_delete"
         android:title="@string/delete" />
 
 </menu>

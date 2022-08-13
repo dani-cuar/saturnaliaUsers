@@ -6,27 +6,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.saturnaliausers.R
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
+import com.example.saturnaliausers.databinding.FragmentSignUpBinding
 
 class SignUpFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = SignUpFragment()
-    }
-
-    private lateinit var viewModel: SignUpViewModel
+    private lateinit var signUpBinding: FragmentSignUpBinding
+    private lateinit var signUpViewModel: SignUpViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_sign_up, container, false)
+        signUpBinding = FragmentSignUpBinding.inflate(inflater, container, false)
+        signUpViewModel = ViewModelProvider(this)[SignUpViewModel::class.java]
+
+       signUpBinding.registerButton.setOnClickListener{
+           findNavController().navigate(SignUpFragmentDirections.actionNavigationSignUpToNavigationLogin())
+       }
+
+        return signUpBinding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity).supportActionBar!!.hide()
     }
 
 }

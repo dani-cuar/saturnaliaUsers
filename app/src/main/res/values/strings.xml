@@ -8,4 +8,14 @@
     <string name="notifications">Notificaciones</string>
     <string name="navigationDelete">navigation_delete</string>
     <string name="delete">Eliminar</string>
+    <string name="name_login">Login</string>
+    <string name="name">Nombre</string>
+    <string name="password">Contraseña</string>
+    <string name="enter">Entrar</string>
+    <string name="register">Registrarse</string>
+    <string name="register_title">Registro</string>
+    <string name="email_address">Correo electrónico</string>
+    <string name="confirm_password">Confirmar contraseña</string>
+    <string name="register_button">Registrarse</string>
+    <string name="title_profile">navigation_profile</string>
 </resources>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">saturnaliaUsers</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="profile">Perfil</string>
+    <string name="favorites">Favoritos</string>
+    <string name="notifications">Notificaciones</string>
+    <string name="navigationDelete">navigation_delete</string>
+    <string name="delete">Eliminar</string>
+</resources>

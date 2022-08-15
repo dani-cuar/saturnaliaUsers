@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.saturnaliausers.ui.profile.ProfileFragment"
-        android:label="@string/title_profile"
+        android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.saturnaliausers.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_signUp"

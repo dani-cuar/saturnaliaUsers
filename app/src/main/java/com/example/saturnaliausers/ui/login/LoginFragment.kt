@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.example.saturnaliausers.R
@@ -23,14 +24,36 @@ class LoginFragment : Fragment() {
         loginBinding = FragmentLoginBinding.inflate(inflater, container, false)
         loginviewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
-        loginBinding.enterButton.setOnClickListener{
-            findNavController().navigate(LoginFragmentDirections.actionNavigationLoginToNavigationProfile())
+        loginviewModel.errorMsg.observe(viewLifecycleOwner){ msg ->
+            showErrorMessage(msg)
         }
 
-        loginBinding.registerButton2.setOnClickListener{
-            findNavController().navigate(LoginFragmentDirections.actionNavigationLoginToNavigationSignUp())
+        loginviewModel.loginSuccess.observe(viewLifecycleOwner){
+            goToProfile()
         }
+
+        with(loginBinding){
+            enterButton.setOnClickListener{
+                loginviewModel.validateFields(
+                    editTextTextEmailAddress.text.toString(),
+                    passwordEditTextTextPassword.text.toString()
+                )
+            }
+
+            loginBinding.registerButton2.setOnClickListener{
+                findNavController().navigate(LoginFragmentDirections.actionNavigationLoginToNavigationSignUp())
+            }
+        }
+
         return loginBinding.root
+    }
+
+    private fun goToProfile() {
+        findNavController().navigate(LoginFragmentDirections.actionNavigationLoginToNavigationProfile())
+    }
+
+    private fun showErrorMessage(msg: String?) {
+        Toast.makeText(requireActivity(),msg, Toast.LENGTH_SHORT).show()
     }
 
     override fun onResume() {

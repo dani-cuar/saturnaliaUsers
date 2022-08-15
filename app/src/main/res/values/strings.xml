@@ -17,5 +17,6 @@
     <string name="email_address">Correo electrónico</string>
     <string name="confirm_password">Confirmar contraseña</string>
     <string name="register_button">Registrarse</string>
-    <string name="title_profile">navigation_profile</string>
+    <string name="title_profile">Perfil</string>
+    <string name="profile_">Perfil</string>
 </resources>

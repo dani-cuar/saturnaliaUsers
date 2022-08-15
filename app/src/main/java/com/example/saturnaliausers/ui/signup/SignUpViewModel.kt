@@ -1,18 +1,18 @@
 package com.example.saturnaliausers.ui.signup
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.saturnaliausers.data.ResourceRemote
 import com.example.saturnaliausers.data.UserRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
+import com.example.saturnaliausers.model.User
 import kotlinx.coroutines.launch
 
 class SignUpViewModel : ViewModel() {
 
     private val userRepository = UserRepository()
+    private lateinit var user: User
 
     private val _errorMsg: MutableLiveData<String?> = MutableLiveData()
     val errorMsg: LiveData<String?> = _errorMsg
@@ -20,8 +20,8 @@ class SignUpViewModel : ViewModel() {
     private val _registerSuccess: MutableLiveData<String?> = MutableLiveData()
     val registerSuccess: LiveData<String?> = _registerSuccess
 
-    fun validateFields(email: String, password: String, repPasssword: String) {
-        if(email.isEmpty() || password.isEmpty() || repPasssword.isEmpty()){
+    fun validateFields(email: String, password: String, repPasssword: String, name: String) {
+        if(email.isEmpty() || password.isEmpty() || repPasssword.isEmpty() || name.isEmpty()){
             _errorMsg.value = "Debe registrar todos los campos"
         }
         else{
@@ -31,13 +31,13 @@ class SignUpViewModel : ViewModel() {
                 if (password.length < 6)
                     _errorMsg.value = "La contraseña debe tener minimo 6 caracteres"
                 else
-                    GlobalScope.launch(Dispatchers.IO) {
+                    viewModelScope.launch{
                         val result = userRepository.registerUser(email, password)
                         result.let { resourceRemote ->
                             when (resourceRemote){
                                 is ResourceRemote.Success -> {
-                                    _registerSuccess.postValue(result.data)
-                                    _errorMsg.postValue("Registro exitoso")
+                                    user = User(result.data, name, email)
+                                    createUser(user)
                                 }
                                 is ResourceRemote.Error -> {
                                     var msg = result.message
@@ -57,5 +57,26 @@ class SignUpViewModel : ViewModel() {
                         }
                     }
             }
+    }
+
+    private fun createUser(user: User) {
+        viewModelScope.launch {
+            val result = userRepository.createUser(user)
+            result.let { resourceRemote ->
+                when(resourceRemote){
+                    is ResourceRemote.Success -> {
+                        _registerSuccess.postValue(result.data)
+                        _errorMsg.postValue("Registro exitoso")
+                    }
+                    is ResourceRemote.Error -> {
+                        var msg = result.message
+                        _errorMsg.postValue(msg)
+                    }
+                    else -> {
+                        /* dont use */
+                    }
+                }
+            }
+        }
     }
 }

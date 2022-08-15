@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.example.saturnaliausers.databinding.FragmentSignUpBinding
-import com.google.android.material.snackbar.Snackbar
 
 class SignUpFragment : Fragment() {
 
@@ -37,25 +36,27 @@ class SignUpFragment : Fragment() {
                signUpViewModel.validateFields(
                    emailTextEmailAddress2.text.toString(),
                    passwordTextTextPassword.text.toString(),
-                   confirmPasswordTextPassword2.text.toString())
+                   confirmPasswordTextPassword2.text.toString(),
+                   nameTextInputLayout.text.toString())
            }
        }
 
         return signUpBinding.root
     }
 
-    private fun showErrorMessage(msg: String?) {
-        Toast.makeText(requireActivity(),msg, Toast.LENGTH_SHORT).show()
-    //Snackbar.make(activity, msg, Snackbar.LENGTH_INDEFINITE).show()
-    }
-
-    fun goToLogin(){
-        findNavController().navigate(SignUpFragmentDirections.actionNavigationSignUpToNavigationLogin())
-    }
-
     override fun onResume() {
         super.onResume()
         (activity as AppCompatActivity).supportActionBar!!.hide()
     }
+
+    private fun showErrorMessage(msg: String?) {
+        Toast.makeText(requireActivity(),msg, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun goToLogin(){
+        findNavController().navigate(SignUpFragmentDirections.actionNavigationSignUpToNavigationLogin())
+    }
+
+
 
 }

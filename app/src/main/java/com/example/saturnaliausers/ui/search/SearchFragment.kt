@@ -1,4 +1,4 @@
-package com.example.saturnaliausers.ui.delete
+package com.example.saturnaliausers.ui.search
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,24 +8,24 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.saturnaliausers.R
 
-class DeleteFragment : Fragment() {
+class SearchFragment : Fragment() {
 
     companion object {
-        fun newInstance() = DeleteFragment()
+        fun newInstance() = SearchFragment()
     }
 
-    private lateinit var viewModel: DeleteViewModel
+    private lateinit var viewModel: SearchViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_delete, container, false)
+        return inflater.inflate(R.layout.fragment_search, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(DeleteViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

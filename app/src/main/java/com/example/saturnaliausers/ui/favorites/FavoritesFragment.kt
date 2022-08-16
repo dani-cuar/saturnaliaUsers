@@ -8,35 +8,23 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.saturnaliausers.databinding.FragmentFavoritesBinding
+import com.example.saturnaliausers.databinding.FragmentHomeBinding
+import com.example.saturnaliausers.ui.home.HomeViewModel
 
 class FavoritesFragment : Fragment() {
 
-    private var _binding: FragmentFavoritesBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private lateinit var favoritesBinding: FragmentFavoritesBinding
+    private lateinit var favoritesViewModel: FavoritesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(FavoritesViewModel::class.java)
+        favoritesBinding = FragmentFavoritesBinding.inflate(inflater,container,false)
+        favoritesViewModel = ViewModelProvider(this)[FavoritesViewModel::class.java]
 
-        _binding = FragmentFavoritesBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+        return favoritesBinding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }

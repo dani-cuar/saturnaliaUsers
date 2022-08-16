@@ -3,11 +3,11 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="profile">Perfil</string>
+    <string name="home">Home</string>
     <string name="favorites">Favoritos</string>
     <string name="notifications">Notificaciones</string>
     <string name="navigationDelete">navigation_delete</string>
-    <string name="delete">Eliminar</string>
+    <string name="search">Buscar</string>
     <string name="name_login">Login</string>
     <string name="name">Nombre</string>
     <string name="password">Contraseña</string>
@@ -19,4 +19,8 @@
     <string name="register_button">Registrarse</string>
     <string name="title_profile">Perfil</string>
     <string name="profile_">Perfil</string>
+    <string name="description_notification">Lista de notificaciones que recibe el usuario al estar suscrito a alguna discoteca</string>
+    <string name="description_favorite">Lista de perfiles de discoteca favoritos</string>
+    <string name="description_search">Busqueda de las discotecas registradas en la base de datos</string>
+    <string name="description_home">Pestaña principal de la app, se mostraran eventos próximos, recomendaciones (basadas en etiquetas seleccionadas por los usuarios)</string>
 </resources>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigation_login">
+    app:startDestination="@id/navigation_discotecas">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -48,4 +48,34 @@
         android:name="com.example.saturnaliausers.ui.search.SearchFragment"
         android:label="@string/search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/navigation_carta"
+        android:name="com.example.saturnaliausers.ui.carta.cartaFragment"
+        android:label="@string/menu"
+        tools:layout="@layout/fragment_carta" />
+    <fragment
+        android:id="@+id/navigation_eventos"
+        android:name="com.example.saturnaliausers.ui.eventos.eventosFragment"
+        android:label="@string/event"
+        tools:layout="@layout/fragment_eventos" />
+    <fragment
+        android:id="@+id/navigation_resena"
+        android:name="com.example.saturnaliausers.ui.reseña.resenaFragment"
+        android:label="@string/comments"
+        tools:layout="@layout/fragment_resena" />
+    <fragment
+        android:id="@+id/navigation_discotecas"
+        android:name="com.example.saturnaliausers.ui.discotecas.discotecasFragment"
+        android:label="@string/discotheque"
+        tools:layout="@layout/fragment_discotecas" >
+        <action
+            android:id="@+id/action_navigation_discotecas_to_navigation_carta"
+            app:destination="@id/navigation_carta" />
+        <action
+            android:id="@+id/action_navigation_discotecas_to_navigation_eventos"
+            app:destination="@id/navigation_eventos" />
+        <action
+            android:id="@+id/action_navigation_discotecas_to_navigation_resena"
+            app:destination="@id/navigation_resena" />
+    </fragment>
 </navigation>

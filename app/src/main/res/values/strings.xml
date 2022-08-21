@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">saturnaliaUsers</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="home">Home</string>
     <string name="favorites">Favoritos</string>
@@ -23,4 +21,16 @@
     <string name="description_favorite">Lista de perfiles de discoteca favoritos</string>
     <string name="description_search">Busqueda de las discotecas registradas en la base de datos</string>
     <string name="description_home">Pestaña principal de la app, se mostraran eventos próximos, recomendaciones (basadas en etiquetas seleccionadas por los usuarios)</string>
+    <string name="discotheque">Discoteca</string>
+    <string name="menu">Carta</string>
+    <string name="event">Eventos</string>
+    <string name="comments">Reseñas</string>
+    <string name="receive_notification">Recibir notificaciones</string>
+    <string name="info">Información</string>
+    <string name="event_button">Eventos</string>
+    <string name="carta_button">Carta</string>
+    <string name="resena_button">Reseñas</string>
+    <string name="rating">star_rating</string>
+    <string name="name_disco">Discoteca</string>
+    <string name="content">image</string>
 </resources>

@@ -8,7 +8,7 @@
     tools:context=".ui.discotecas.discotecasFragment">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/disco_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -47,7 +47,7 @@
         android:contentDescription="@string/content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/disco_imageView" />
 
     <CheckBox
         android:id="@+id/checkBox"

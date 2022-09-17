@@ -36,4 +36,6 @@
     <string name="name_discoteca">Escriba el nombre de la discoteca</string>
     <string name="name_carta">coctel</string>
     <string name="name_disco_text">disco1</string>
+    <string name="accept">Aceptar</string>
+    <string name="Cancel">Cancelar</string>
 </resources>

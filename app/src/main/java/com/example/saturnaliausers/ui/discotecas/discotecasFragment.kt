@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.saturnaliausers.R
@@ -27,13 +26,28 @@ class discotecasFragment : Fragment() {
     ): View? {
         discotecasBinding = FragmentDiscotecasBinding.inflate(inflater, container, false)
         discotecasViewModel = ViewModelProvider(this)[DiscotecasViewModel::class.java]
+        return discotecasBinding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val disco = args.disco
 
+        discotecasViewModel.searchDiscos(disco.id)
+
+        discotecasViewModel.discoExist.observe(viewLifecycleOwner) {discoExist ->
+            if (discoExist) {
+                discotecasBinding.favoritesImageView5.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite))
+                discoExistAux = true
+            }
+            else {
+                discotecasBinding.favoritesImageView5.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite_border))
+                discoExistAux = false
+            }
+        }
+
         with(discotecasBinding){
-
             titleDiscoteca.text = disco.nombre
-
             eventButton.setOnClickListener{
                 findNavController().navigate(discotecasFragmentDirections.actionNavigationDiscotecasToNavigationEventos())
             }
@@ -52,13 +66,8 @@ class discotecasFragment : Fragment() {
                     discoExistAux = true
                     discotecasViewModel.addDiscoToFavorites(disco)
                 }
-
             }
         }
-        return discotecasBinding.root
-    }
-    override fun onResume() {
-        super.onResume()
-        (activity as AppCompatActivity).supportActionBar!!.hide()
     }
 }
+

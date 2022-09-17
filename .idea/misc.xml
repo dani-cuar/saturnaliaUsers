@@ -7,14 +7,15 @@
         <entry key="..\:/Users/Usuario/Documents/Proyectos Android Studio/saturnaliaUsers/app/src/main/res/drawable/ic_favorite.xml" value="0.256" />
         <entry key="..\:/Users/Usuario/Documents/Proyectos Android Studio/saturnaliaUsers/app/src/main/res/layout/activity_main.xml" value="0.136" />
         <entry key="..\:/Users/Usuario/Documents/Proyectos Android Studio/saturnaliaUsers/app/src/main/res/layout/carta_item.xml" value="0.25" />
-        <entry key="..\:/Users/Usuario/Documents/Proyectos Android Studio/saturnaliaUsers/app/src/main/res/layout/discoteca_item.xml" value="0.2" />
+        <entry key="..\:/Users/Usuario/Documents/Proyectos Android Studio/saturnaliaUsers/app/src/main/res/layout/discoteca_item.xml" value="0.1" />
+        <entry key="..\:/Users/Usuario/Documents/Proyectos Android Studio/saturnaliaUsers/app/src/main/res/layout/favorites_cardview.xml" value="0.16" />
         <entry key="..\:/Users/Usuario/Documents/Proyectos Android Studio/saturnaliaUsers/app/src/main/res/layout/favorites_item.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/Usuario/Documents/Proyectos Android Studio/saturnaliaUsers/app/src/main/res/layout/fragment_carta.xml" value="0.264" />
         <entry key="..\:/Users/Usuario/Documents/Proyectos Android Studio/saturnaliaUsers/app/src/main/res/layout/fragment_delete.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Usuario/Documents/Proyectos Android Studio/saturnaliaUsers/app/src/main/res/layout/fragment_discoteca.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Usuario/Documents/Proyectos Android Studio/saturnaliaUsers/app/src/main/res/layout/fragment_discotecas.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Usuario/Documents/Proyectos Android Studio/saturnaliaUsers/app/src/main/res/layout/fragment_eventos.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Usuario/Documents/Proyectos Android Studio/saturnaliaUsers/app/src/main/res/layout/fragment_favorites.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/Usuario/Documents/Proyectos Android Studio/saturnaliaUsers/app/src/main/res/layout/fragment_favorites.xml" value="0.19665271966527198" />
         <entry key="..\:/Users/Usuario/Documents/Proyectos Android Studio/saturnaliaUsers/app/src/main/res/layout/fragment_home.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/Usuario/Documents/Proyectos Android Studio/saturnaliaUsers/app/src/main/res/layout/fragment_login.xml" value="0.264" />
         <entry key="..\:/Users/Usuario/Documents/Proyectos Android Studio/saturnaliaUsers/app/src/main/res/layout/fragment_notifications.xml" value="0.25416666666666665" />

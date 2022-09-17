@@ -6,14 +6,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.example.saturnaliausers.R
 import com.example.saturnaliausers.databinding.FragmentDiscotecasBinding
 
 class discotecasFragment : Fragment() {
 
     private lateinit var discotecasBinding: FragmentDiscotecasBinding
     private lateinit var discotecasViewModel: DiscotecasViewModel
+    private var discoExistAux = false
+
+    private val args: discotecasFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,8 +28,12 @@ class discotecasFragment : Fragment() {
         discotecasBinding = FragmentDiscotecasBinding.inflate(inflater, container, false)
         discotecasViewModel = ViewModelProvider(this)[DiscotecasViewModel::class.java]
 
+        val disco = args.disco
 
         with(discotecasBinding){
+
+            titleDiscoteca.text = disco.nombre
+
             eventButton.setOnClickListener{
                 findNavController().navigate(discotecasFragmentDirections.actionNavigationDiscotecasToNavigationEventos())
             }
@@ -32,6 +42,17 @@ class discotecasFragment : Fragment() {
             }
             resenaButton.setOnClickListener{
                 findNavController().navigate(discotecasFragmentDirections.actionNavigationDiscotecasToNavigationResena())
+            }
+
+            favoritesImageView5.setOnClickListener{
+                if (discoExistAux)
+                    Toast.makeText(context, "${disco.nombre} ya esta en favoritos",Toast.LENGTH_LONG).show()
+                else{
+                    discotecasBinding.favoritesImageView5.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite))
+                    discoExistAux = true
+                    discotecasViewModel.addDiscoToFavorites(disco)
+                }
+
             }
         }
         return discotecasBinding.root

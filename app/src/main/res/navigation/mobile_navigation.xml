@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigation_discotecas">
+    app:startDestination="@id/navigation_login">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -47,7 +47,11 @@
         android:id="@+id/navigation_search"
         android:name="com.example.saturnaliausers.ui.search.SearchFragment"
         android:label="@string/search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_navigation_search_to_navigation_discotecas"
+            app:destination="@id/navigation_discotecas" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_carta"
         android:name="com.example.saturnaliausers.ui.carta.cartaFragment"
@@ -77,5 +81,8 @@
         <action
             android:id="@+id/action_navigation_discotecas_to_navigation_resena"
             app:destination="@id/navigation_resena" />
+        <argument
+            android:name="disco"
+            app:argType="com.example.saturnaliausers.model.Disco" />
     </fragment>
 </navigation>

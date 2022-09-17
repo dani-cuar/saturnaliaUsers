@@ -7,19 +7,16 @@
     android:background="@color/backgroundBlue"
     tools:context=".ui.carta.cartaFragment">
 
-    <TextView
-        android:id="@+id/title_carta"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/carta_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/menu"
-        android:textColor="@color/pink"
-        android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextContrastCheck" />
+        tools:listitem="@layout/carta_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

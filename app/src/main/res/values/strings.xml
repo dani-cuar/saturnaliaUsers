@@ -33,4 +33,7 @@
     <string name="rating">star_rating</string>
     <string name="name_disco">Discoteca</string>
     <string name="content">image</string>
+    <string name="name_discoteca">Escriba el nombre de la discoteca</string>
+    <string name="name_carta">coctel</string>
+    <string name="name_disco_text">disco1</string>
 </resources>

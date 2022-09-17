@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.navigation_login || destination.id == R.id.navigation_signUp)
+            if (destination.id == R.id.navigation_login || destination.id == R.id.navigation_signUp) //|| destination.id == R.id.navigation_discotecas|| destination.id == R.id.navigation_resena|| destination.id == R.id.navigation_carta|| destination.id == R.id.navigation_eventos)
                 navView.visibility = View.GONE
             else
                 navView.visibility = View.VISIBLE
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_favorites, R.id.navigation_notifications
+                R.id.navigation_home, R.id.navigation_favorites, R.id.navigation_notifications, R.id.navigation_search
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

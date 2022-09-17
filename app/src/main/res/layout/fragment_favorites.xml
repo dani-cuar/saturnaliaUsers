@@ -16,7 +16,7 @@
         android:layout_marginEnd="16dp"
         android:hint="@string/favorites"
         android:textAlignment="center"
-        android:textColorHint="#78909C"
+        android:textColorHint="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,17 +24,16 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextContrastCheck" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/favorites_recyclerview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/description_favorite"
-        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_favorites"
-        tools:ignore="TextContrastCheck" />
+        tools:listitem="@layout/favorites_item" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

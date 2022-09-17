@@ -13,7 +13,6 @@ import kotlinx.coroutines.tasks.await
 
 class UserRepository {
 
-
     private var auth: FirebaseAuth = Firebase.auth
     private var db = Firebase.firestore
 

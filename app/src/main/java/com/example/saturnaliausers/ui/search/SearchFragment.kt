@@ -6,27 +6,70 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.saturnaliausers.R
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.saturnaliausers.databinding.FragmentSearchBinding
+import com.example.saturnaliausers.model.Carta
+import com.example.saturnaliausers.model.Disco
+import com.example.saturnaliausers.ui.carta.CartaAdapter
+import com.example.saturnaliausers.ui.discotecas.discotecasFragmentDirections
+import kotlin.collections.ArrayList
 
 class SearchFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = SearchFragment()
-    }
-
-    private lateinit var viewModel: SearchViewModel
+    private lateinit var searchBinding: FragmentSearchBinding
+    private lateinit var searchViewModel: SearchViewModel
+    private lateinit var SearchAdapter: SearchAdapter
+    private var discoList: ArrayList<Disco> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_search, container, false)
+    ): View {
+        searchBinding = FragmentSearchBinding.inflate(inflater, container, false)
+        searchViewModel = ViewModelProvider(this)[SearchViewModel::class.java]
+
+        searchViewModel.loadDisco()
+
+        searchViewModel.showMsg.observe(viewLifecycleOwner) { msg ->
+            showMsg(msg)
+        }
+
+        searchViewModel.discosList.observe(viewLifecycleOwner) { discoList ->
+            SearchAdapter.appendItems(discoList)
+        }
+
+        //searchViewModel.discoData.observe(viewLifecycleOwner) { discoName ->
+
+        //}
+
+        SearchAdapter = SearchAdapter(discoList, onItemClicked = { onDiscoItemClicked(it)})
+
+        searchBinding.searchRecyclerView.apply {
+            layoutManager = LinearLayoutManager(this@SearchFragment.requireContext())
+            adapter = SearchAdapter
+            setHasFixedSize(false)
+        }
+
+        with(searchBinding){
+            searchButton.setOnClickListener{
+                searchViewModel.validateData(searchEditText.text.toString())
+            }
+        }
+        return searchBinding.root
+    }
+    private fun showMsg(msg: String?) {
+        Toast.makeText(requireActivity(), msg, Toast.LENGTH_LONG).show()
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
-        // TODO: Use the ViewModel
+    private fun onDiscoItemClicked(disco: Disco) {
+        findNavController().navigate(SearchFragmentDirections.actionNavigationSearchToNavigationDiscotecas(disco))
     }
 
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity).supportActionBar!!.hide()
+    }
 }

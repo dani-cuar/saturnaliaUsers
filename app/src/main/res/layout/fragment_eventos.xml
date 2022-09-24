@@ -7,19 +7,15 @@
     android:background="@color/backgroundBlue"
     tools:context=".ui.eventos.eventosFragment">
 
-    <TextView
-        android:id="@+id/title_events"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/eventos_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/event"
-        android:textColor="@color/pink"
-        android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextContrastCheck" />
+        tools:listitem="@layout/eventos_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

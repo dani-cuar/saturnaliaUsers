@@ -38,4 +38,9 @@
     <string name="name_disco_text">disco1</string>
     <string name="accept">Aceptar</string>
     <string name="Cancel">Cancelar</string>
+    <string name="cover_">Cover</string>
+    <string name="name_event">Nombre</string>
+    <string name="date_event">Fecha</string>
+    <string name="description">Descripción</string>
+    <string name="hora_">Hora</string>
 </resources>

@@ -15,7 +15,11 @@
         android:id="@+id/navigation_favorites"
         android:name="com.example.saturnaliausers.ui.favorites.FavoritesFragment"
         android:label="@string/favorites"
-        tools:layout="@layout/fragment_favorites" />
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_navigation_favorites_to_navigation_discotecas"
+            app:destination="@id/navigation_discotecas" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"

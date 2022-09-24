@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/events_cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/backgroundText">
+
+            <TextView
+                android:id="@+id/nameEvents_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/name_event"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/cover_textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/cover_"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameEvents_textView" />
+
+            <TextView
+                android:id="@+id/fecha_textView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/date_event"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cover_textView2" />
+
+            <TextView
+                android:id="@+id/description_textView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/description"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fecha_textView3" />
+
+            <TextView
+                android:id="@+id/hora_textView5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/hora_"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/description_textView4" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

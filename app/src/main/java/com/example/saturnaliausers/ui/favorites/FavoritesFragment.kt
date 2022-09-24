@@ -8,11 +8,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.saturnaliausers.R
 import com.example.saturnaliausers.databinding.FragmentFavoritesBinding
 import com.example.saturnaliausers.databinding.FragmentHomeBinding
 import com.example.saturnaliausers.local.LocalDisco
+import com.example.saturnaliausers.model.Disco
 import com.example.saturnaliausers.ui.home.HomeViewModel
 
 class FavoritesFragment : Fragment() {
@@ -21,6 +23,7 @@ class FavoritesFragment : Fragment() {
     private lateinit var favoritesViewModel: FavoritesViewModel
     private lateinit var discosFavoritesAdapter: DiscosFavoritesAdapter
     private var discosList: ArrayList<LocalDisco> = ArrayList()
+    private var discoList: ArrayList<Disco> = ArrayList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         favoritesBinding = FragmentFavoritesBinding.inflate(inflater,container,false)
@@ -29,6 +32,7 @@ class FavoritesFragment : Fragment() {
         favoritesViewModel.loadDiscos()
 
         discosFavoritesAdapter = DiscosFavoritesAdapter(discosList, onItemClicked = {onItemClicked(it)},onItemLongClicked = {onItemLongClicked(it)})
+
 
         favoritesBinding.favoritesRecyclerview.apply {
             layoutManager = LinearLayoutManager(this@FavoritesFragment.context)
@@ -58,8 +62,8 @@ class FavoritesFragment : Fragment() {
         alertDialog?.show()
     }
 
-    private fun onItemClicked(it: LocalDisco) {
-
+    private fun onItemClicked(disco: LocalDisco) {
     }
 
 }
+

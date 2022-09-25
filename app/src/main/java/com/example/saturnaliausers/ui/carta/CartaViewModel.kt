@@ -13,7 +13,6 @@ import kotlinx.coroutines.launch
 class CartaViewModel : ViewModel() {
 
     private val cartaRepository = CartaRepository()
-
     private var cartaList: ArrayList<Carta> = ArrayList()
 
     private val _showMsg: MutableLiveData<String?> = MutableLiveData()
@@ -45,5 +44,4 @@ class CartaViewModel : ViewModel() {
             }
         }
     }
-
 }

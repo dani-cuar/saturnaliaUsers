@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.saturnaliausers.databinding.FragmentSearchBinding
 import com.example.saturnaliausers.model.Carta
 import com.example.saturnaliausers.model.Disco
@@ -41,9 +42,9 @@ class SearchFragment : Fragment() {
             SearchAdapter.appendItems(discoList)
         }
 
-        //searchViewModel.discoData.observe(viewLifecycleOwner) { discoName ->
+        searchViewModel.discoData.observe(viewLifecycleOwner) { discoName ->
 
-        //}
+        }
 
         SearchAdapter = SearchAdapter(discoList, onItemClicked = { onDiscoItemClicked(it)})
 

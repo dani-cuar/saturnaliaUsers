@@ -8,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.saturnaliausers.databinding.FragmentCartaBinding
 import com.example.saturnaliausers.model.Carta
+import com.example.saturnaliausers.model.Disco
 import kotlin.collections.ArrayList
 
 class cartaFragment : Fragment() {
@@ -20,6 +22,8 @@ class cartaFragment : Fragment() {
     private lateinit var cartaAdapter: CartaAdapter
     private var cartaList: ArrayList<Carta> = ArrayList()
 
+    private val args: cartaFragmentArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,7 +31,9 @@ class cartaFragment : Fragment() {
         cartaBinding = FragmentCartaBinding.inflate(inflater, container, false)
         cartaViewModel = ViewModelProvider(this)[CartaViewModel::class.java]
 
-        cartaViewModel.loadCarta()
+        val disco = args.disco
+
+        cartaViewModel.loadCarta(disco.uid)
 
         cartaViewModel.showMsg.observe(viewLifecycleOwner){msg ->
             showMsg(msg)

@@ -46,4 +46,5 @@
     <string name="address">Dirección</string>
     <string name="email">Correo electrónico</string>
     <string name="phone">Teléfono</string>
+    <string name="cost">Precio</string>
 </resources>

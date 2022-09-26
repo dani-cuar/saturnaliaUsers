@@ -21,9 +21,9 @@ class CartaViewModel : ViewModel() {
     private val _cartasList: MutableLiveData<ArrayList<Carta>> = MutableLiveData()
     val cartasList: LiveData<ArrayList<Carta>> = _cartasList
 
-    fun loadCarta(){
+    fun loadCarta(uid: String?) {
         viewModelScope.launch {
-            var result = cartaRepository.searchCarta()
+            var result = cartaRepository.searchCarta(uid)
             result.let { resourceRemote ->
                 when (resourceRemote){
                     is ResourceRemote.Success -> {

@@ -11,12 +11,11 @@ import kotlinx.coroutines.tasks.await
 
 class CartaRepository {
 
-    private var auth: FirebaseAuth = Firebase.auth
     private var db = Firebase.firestore
 
-    suspend fun searchCarta(): ResourceRemote<QuerySnapshot?>{
+    suspend fun searchCarta(uid: String?): ResourceRemote<QuerySnapshot?>{
         return try {
-            val docRef = db.collection("discos").document("fOZk1XhDyKPhYBwOmDBb").collection("carta")
+            val docRef = db.collection("discos").document(uid.toString()).collection("Products")
             val result = docRef?.get()?.await()
             ResourceRemote.Success(data = result)
         } catch (e: FirebaseFirestoreException){

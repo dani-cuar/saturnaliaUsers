@@ -26,6 +26,9 @@ class DiscotecasViewModel : ViewModel() {
     private val _profile: MutableLiveData<Profile> = MutableLiveData()
     val profile: LiveData<Profile> = _profile
 
+    private val _showMsg: MutableLiveData<String?> = MutableLiveData()
+    val showMsg: LiveData<String?> = _showMsg
+
     fun addDiscoToFavorites(profile: Profile) {
 
         val localDisco = LocalDisco(
@@ -56,7 +59,8 @@ class DiscotecasViewModel : ViewModel() {
                         _profile.postValue(result.data?.documents?.get(0)?.toObject<Profile>())
                     }
                     is ResourceRemote.Error -> {
-                        //TODO mensaje de error
+                        val msg= result.message
+                        _showMsg.postValue(msg)
                     }
                     else -> {
                         //DON'T USE

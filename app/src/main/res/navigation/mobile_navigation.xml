@@ -60,7 +60,11 @@
         android:id="@+id/navigation_carta"
         android:name="com.example.saturnaliausers.ui.carta.cartaFragment"
         android:label="@string/menu"
-        tools:layout="@layout/fragment_carta" />
+        tools:layout="@layout/fragment_carta" >
+        <argument
+            android:name="disco"
+            app:argType="com.example.saturnaliausers.model.Disco" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_eventos"
         android:name="com.example.saturnaliausers.ui.eventos.eventosFragment"

@@ -37,8 +37,8 @@ class CartaAdapter(
         private val binding = CartaItemBinding.bind(itemView)
         fun bind(carta: Carta){
             with(binding){
-                nameTextView.text = carta.nombre
-
+                nameTextView.text = carta.productName
+                precioTextView3.text = carta.productPrice.toString()
             }
         }
     }

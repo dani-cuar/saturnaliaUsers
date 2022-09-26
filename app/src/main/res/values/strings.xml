@@ -47,4 +47,47 @@
     <string name="email">Correo electrónico</string>
     <string name="phone">Teléfono</string>
     <string name="cost">Precio</string>
+
+    <string name="string_login">Login</string>
+    <string name="string_signUp">SignUp</string>
+    <string name="create_product">create_product</string>
+    <string name="string_product_name">Nombre del producto</string>
+    <string name="string_product_price">Precio del producto</string>
+    <string name="string_product_type">Tipo de producto</string>
+    <string name="string_product_description">Descripción del producto</string>
+    <string name="createproduct_title">Añadir un producto</string>
+    <string name="string_createproduct_button">Crear producto</string>
+    <string name="string_add">Añadir</string>
+    <string name="string_loginButton">Iniciar sesión</string>
+    <string name="string_titleCreateProduct">Crear producto</string>
+
+    <string name="cancel">Cacelar</string>
+    <string name="string_eventos">Eventos</string>
+    <string name="string_createEvent">Crear evento</string>
+    <string name="string_eventName">Nombre del evento</string>
+    <string name="string_eventDescription">Descripción del evento</string>
+    <string name="string_eventDate">Fecha:</string>
+    <string name="string_eventdateformat">DD/MM/YYYY</string>
+    <string name="string_eventTime">Hora:</string>
+    <string name="string_timeFormat">HH/MM</string>
+    <string name="string_eventCover">Cover</string>
+    <string name="string_reviewTitle">Reseñas</string>
+    <string name="string_reviewAuthor">Nombre del autor</string>
+    <string name="string_puntosReview">Calificación</string>
+    <string name="string_reviewDesc">Reseña</string>
+    <string name="string_editEvent">Editar evento</string>
+    <string name="String_edit">Editar</string>
+    <string name="string_eventDelete">Eliminar</string>
+    <string name="string_editProduct">Editar producto</string>
+    <string name="string_discoName">Nombre de la discoteca</string>
+    <string name="string_about">Acerca de nosotros</string>
+    <string name="string_aboutContent">Descripción breve del sitio</string>
+    <string name="string_contacto">Contactanos</string>
+    <string name="string_num">Telefono:</string>
+    <string name="string_email">E-mail:</string>
+    <string name="string_address">Dirección:</string>
+    <string name="String_ourProducts">Nuestros productos</string>
+    <string name="string_nextEvents">Proximos eventos</string>
+    <string name="string_editProfile">Editar perfil</string>
+    <string name="string_save">Guardar</string>
 </resources>

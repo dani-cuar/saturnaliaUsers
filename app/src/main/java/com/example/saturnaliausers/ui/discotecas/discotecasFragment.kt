@@ -70,7 +70,7 @@ class discotecasFragment : Fragment() {
                 findNavController().navigate(discotecasFragmentDirections.actionNavigationDiscotecasToNavigationCarta(disco))
             }
             resenaButton.setOnClickListener {
-                findNavController().navigate(discotecasFragmentDirections.actionNavigationDiscotecasToNavigationResena())
+                findNavController().navigate(discotecasFragmentDirections.actionNavigationDiscotecasToNavigationResena(disco))
             }
 
             favoritesImageView5.setOnClickListener {

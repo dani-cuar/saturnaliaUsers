@@ -11,11 +11,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.saturnaliausers.R
 import com.example.saturnaliausers.databinding.FragmentDiscotecasBinding
+import com.example.saturnaliausers.model.Profile
 
 class discotecasFragment : Fragment() {
 
     private lateinit var discotecasBinding: FragmentDiscotecasBinding
     private lateinit var discotecasViewModel: DiscotecasViewModel
+    private var profile = Profile()
     private var discoExistAux = false
 
     private val args: discotecasFragmentArgs by navArgs()
@@ -33,7 +35,21 @@ class discotecasFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val disco = args.disco
 
+        discotecasViewModel.loadProfile(disco.uid)
         discotecasViewModel.searchDiscos(disco.uid)
+
+        discotecasViewModel.profile.observe(viewLifecycleOwner){
+            profile = it
+            with(discotecasBinding){
+                titleDiscoteca.text = it.name
+                info.text = it.about
+                addressTextView2.text = it.address
+                emailTextView3.text = it.email
+                phoneTextView4.text = it.phone
+                ratingBar.numStars = it.rating.toString().toInt()
+                ratingBar.rating = it.rating.toString().toFloat()
+            }
+        }
 
         discotecasViewModel.discoExist.observe(viewLifecycleOwner) {discoExist ->
             if (discoExist) {
@@ -47,13 +63,6 @@ class discotecasFragment : Fragment() {
         }
 
         with(discotecasBinding){
-            titleDiscoteca.text = disco.name
-            info.text = disco.about
-            addressTextView2.text = disco.address
-            emailTextView3.text = disco.email
-            phoneTextView4.text = disco.phone
-            ratingBar.numStars = disco.rating.toString().toInt()
-            ratingBar.rating = disco.rating.toString().toFloat()
 
             eventButton.setOnClickListener{
                 findNavController().navigate(discotecasFragmentDirections.actionNavigationDiscotecasToNavigationEventos())
@@ -67,11 +76,11 @@ class discotecasFragment : Fragment() {
 
             favoritesImageView5.setOnClickListener{
                 if (discoExistAux)
-                    Toast.makeText(context, "${disco.name} ya esta en favoritos",Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "${profile.name} ya esta en favoritos",Toast.LENGTH_LONG).show()
                 else{
                     discotecasBinding.favoritesImageView5.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite))
+                    discotecasViewModel.addDiscoToFavorites(profile)
                     discoExistAux = true
-                    discotecasViewModel.addDiscoToFavorites(disco)
                 }
             }
         }

@@ -16,7 +16,7 @@ class CartaRepository {
 
     suspend fun searchCarta(): ResourceRemote<QuerySnapshot?>{
         return try {
-            val docRef = db.collection("discotecas").document("fOZk1XhDyKPhYBwOmDBb").collection("carta")
+            val docRef = db.collection("discos").document("fOZk1XhDyKPhYBwOmDBb").collection("carta")
             val result = docRef?.get()?.await()
             ResourceRemote.Success(data = result)
         } catch (e: FirebaseFirestoreException){

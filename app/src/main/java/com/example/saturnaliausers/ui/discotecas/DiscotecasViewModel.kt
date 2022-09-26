@@ -4,23 +4,33 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.saturnaliausers.data.DiscoRepository
+import com.example.saturnaliausers.data.ResourceRemote
 import com.example.saturnaliausers.local.LocalDisco
 import com.example.saturnaliausers.local.repository.LocalDiscoRepository
 import com.example.saturnaliausers.model.Disco
+import com.example.saturnaliausers.model.Profile
+import com.google.firebase.firestore.ktx.toObject
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.sql.Types.NULL
 
 class DiscotecasViewModel : ViewModel() {
 
     val localDiscoRepository = LocalDiscoRepository()
+    val discoRepository = DiscoRepository()
 
     private val _discoExist : MutableLiveData<Boolean> = MutableLiveData()
     val discoExist: LiveData<Boolean> = _discoExist
 
-    fun addDiscoToFavorites(disco: Disco) {
+    private val _profile: MutableLiveData<Profile> = MutableLiveData()
+    val profile: LiveData<Profile> = _profile
+
+    fun addDiscoToFavorites(profile: Profile) {
+
         val localDisco = LocalDisco(
             id= NULL,
-            name = disco.name)
+            name = profile.name)
 
         viewModelScope.launch {
             localDiscoRepository.saveDisco(localDisco)
@@ -34,6 +44,25 @@ class DiscotecasViewModel : ViewModel() {
             if (localDisco != null)
                 discoExistAux = true
             _discoExist.postValue(discoExistAux)
+        }
+    }
+
+    fun loadProfile(uid: String?) {
+        viewModelScope.launch {
+            val result = discoRepository.loadProfile(uid)
+            result.let { resourceRemote ->
+                when(resourceRemote){
+                    is ResourceRemote.Success -> {
+                        _profile.postValue(result.data?.documents?.get(0)?.toObject<Profile>())
+                    }
+                    is ResourceRemote.Error -> {
+                        //TODO mensaje de error
+                    }
+                    else -> {
+                        //DON'T USE
+                    }
+                }
+            }
         }
     }
 }

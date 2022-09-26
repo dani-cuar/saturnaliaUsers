@@ -36,7 +36,7 @@ class SearchAdapter (
         private val binding = DiscotecaItemBinding.bind(itemView)
         fun bind(disco: Disco){
             with(binding){
-                discoTextView3.text = disco.nombre
+                discoTextView3.text = disco.name
             }
         }
     }

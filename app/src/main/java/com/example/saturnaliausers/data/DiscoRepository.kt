@@ -17,7 +17,7 @@ class DiscoRepository {
 
     suspend fun searchDisco(): ResourceRemote<QuerySnapshot?>{
         return try {
-            val docRef = db.collection("discotecas")
+            val docRef = db.collection("discos")
             val result = docRef?.get()?.await()
             Log.d("discotecas",result.toString())
             ResourceRemote.Success(data = result)

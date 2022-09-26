@@ -33,7 +33,7 @@ class discotecasFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val disco = args.disco
 
-        discotecasViewModel.searchDiscos(disco.id)
+        discotecasViewModel.searchDiscos(disco.uid)
 
         discotecasViewModel.discoExist.observe(viewLifecycleOwner) {discoExist ->
             if (discoExist) {
@@ -47,7 +47,14 @@ class discotecasFragment : Fragment() {
         }
 
         with(discotecasBinding){
-            titleDiscoteca.text = disco.nombre
+            titleDiscoteca.text = disco.name
+            info.text = disco.about
+            addressTextView2.text = disco.address
+            emailTextView3.text = disco.email
+            phoneTextView4.text = disco.phone
+            ratingBar.numStars = disco.rating.toString().toInt()
+            ratingBar.rating = disco.rating.toString().toFloat()
+
             eventButton.setOnClickListener{
                 findNavController().navigate(discotecasFragmentDirections.actionNavigationDiscotecasToNavigationEventos())
             }
@@ -60,7 +67,7 @@ class discotecasFragment : Fragment() {
 
             favoritesImageView5.setOnClickListener{
                 if (discoExistAux)
-                    Toast.makeText(context, "${disco.nombre} ya esta en favoritos",Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "${disco.name} ya esta en favoritos",Toast.LENGTH_LONG).show()
                 else{
                     discotecasBinding.favoritesImageView5.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite))
                     discoExistAux = true

@@ -37,8 +37,8 @@ class SearchViewModel : ViewModel() {
                             var existDisco = false
                             result.data?.documents?.forEach { document ->
                                 val disco = document.toObject<Disco>()
-                                if (discotecaName == disco?.nombre) {
-                                    _discoData.postValue("Nombre: " + disco.nombre)
+                                if (discotecaName == disco?.name) {
+                                    _discoData.postValue("Nombre: " + disco.name)
                                     existDisco = true
                                 }
                             }

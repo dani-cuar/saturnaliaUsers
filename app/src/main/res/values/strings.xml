@@ -43,4 +43,7 @@
     <string name="date_event">Fecha</string>
     <string name="description">Descripción</string>
     <string name="hora_">Hora</string>
+    <string name="address">Dirección</string>
+    <string name="email">Correo electrónico</string>
+    <string name="phone">Teléfono</string>
 </resources>

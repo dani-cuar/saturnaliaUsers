@@ -20,7 +20,7 @@ class DiscotecasViewModel : ViewModel() {
     fun addDiscoToFavorites(disco: Disco) {
         val localDisco = LocalDisco(
             id= NULL,
-            name = disco.nombre)
+            name = disco.name)
 
         viewModelScope.launch {
             localDiscoRepository.saveDisco(localDisco)

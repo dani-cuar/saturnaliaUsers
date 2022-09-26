@@ -90,4 +90,8 @@
     <string name="string_nextEvents">Proximos eventos</string>
     <string name="string_editProfile">Editar perfil</string>
     <string name="string_save">Guardar</string>
+    <string name="string_createReview">Deja una reseña</string>
+    <string name="string_author">Autor</string>
+    <string name="string_comment">Comentario</string>
+    <string name="string_letReview">Calificar</string>
 </resources>

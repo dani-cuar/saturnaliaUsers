@@ -73,6 +73,10 @@ class discotecasFragment : Fragment() {
                 findNavController().navigate(discotecasFragmentDirections.actionNavigationDiscotecasToNavigationResena(disco))
             }
 
+            createReviewButton.setOnClickListener {
+                findNavController().navigate(discotecasFragmentDirections.actionNavigationDiscotecasToNavigationCreateReview(disco))
+            }
+
             favoritesImageView5.setOnClickListener {
                 if (discoExistAux)
                     Toast.makeText(

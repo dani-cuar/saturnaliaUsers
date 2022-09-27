@@ -96,5 +96,20 @@
         <argument
             android:name="disco"
             app:argType="com.example.saturnaliausers.model.Disco" />
+        <action
+            android:id="@+id/action_navigation_discotecas_to_navigation_createReview"
+            app:destination="@id/navigation_createReview" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_createReview"
+        android:name="com.example.saturnaliausers.ui.createreview.CreateReviewFragment"
+        android:label="fragment_create_review"
+        tools:layout="@layout/fragment_create_review" >
+        <action
+            android:id="@+id/action_navigation_createReview_to_navigation_discotecas"
+            app:destination="@id/navigation_discotecas" />
+        <argument
+            android:name="disco"
+            app:argType="com.example.saturnaliausers.model.Disco" />
     </fragment>
 </navigation>

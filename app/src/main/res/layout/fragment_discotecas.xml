@@ -132,6 +132,21 @@
         app:layout_constraintTop_toBottomOf="@+id/carta_button"
         tools:ignore="TextContrastCheck" />
 
+    <Button
+        android:id="@+id/createReviewButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/pink"
+        android:text="@string/string_letReview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resena_button"
+        tools:ignore="TextContrastCheck" />
+
     <ImageView
         android:id="@+id/favorites_imageView5"
         android:layout_width="wrap_content"

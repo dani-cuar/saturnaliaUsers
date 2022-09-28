@@ -94,4 +94,6 @@
     <string name="string_author">Autor</string>
     <string name="string_comment">Comentario</string>
     <string name="string_letReview">Calificar</string>
+    <string name="title_disco_recomend">Mejores puntuadas</string>
+    <string name="title_events">Eventos próximos</string>
 </resources>

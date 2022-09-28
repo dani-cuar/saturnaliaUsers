@@ -22,4 +22,16 @@ class EventosRepository {
             ResourceRemote.Error(message = e.localizedMessage)
         }
     }
+
+    suspend fun loadEventRecomend(): ResourceRemote<QuerySnapshot?>{
+        return try {
+            val docRef = db.collection("eventReco")
+            val result = docRef?.get()?.await()
+            ResourceRemote.Success(data = result)
+        } catch (e: FirebaseFirestoreException){
+            ResourceRemote.Error(message = e.localizedMessage)
+        } catch (e: FirebaseNetworkException){
+            ResourceRemote.Error(message = e.localizedMessage)
+        }
+    }
 }

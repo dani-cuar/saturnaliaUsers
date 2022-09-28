@@ -29,6 +29,8 @@ class eventosFragment : Fragment() {
 
         eventosViewModel.loadEventos()
 
+
+
         eventosViewModel.showMsg.observe(viewLifecycleOwner){ msg ->
             showMsg(msg)
         }

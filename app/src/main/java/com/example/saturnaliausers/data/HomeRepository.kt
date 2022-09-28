@@ -12,7 +12,7 @@ class HomeRepository {
 
     suspend fun searchRecomendados(): ResourceRemote<QuerySnapshot?>{
         return try {
-            val docRef = db.collection("discotecas").document("fOZk1XhDyKPhYBwOmDBb").collection("recomendados")
+            val docRef = db.collection("eventReco")
             val result = docRef?.get()?.await()
             ResourceRemote.Success(data = result)
         } catch (e: FirebaseFirestoreException){

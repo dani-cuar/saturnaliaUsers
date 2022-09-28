@@ -38,7 +38,7 @@ class ResenaAdapter(
         fun bind(review: Review){
             with(binding){
                 textViewAuthName.text = review.authName
-                textViewReviewPunct.text = review.score.toString()
+                reviewRatingBar2.rating = review.score.toString().toFloat()
                 textViewReviewText.text = review.desc
             }
         }

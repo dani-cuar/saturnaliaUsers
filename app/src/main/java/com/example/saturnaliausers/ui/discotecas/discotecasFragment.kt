@@ -42,8 +42,8 @@ class discotecasFragment : Fragment() {
                 addressTextView2.text = it.address
                 emailTextView3.text = it.email
                 phoneTextView4.text = it.phone
-                ratingBar.numStars = it.rating.toString().toInt()
-                ratingBar.rating = it.rating.toString().toFloat()
+                //ratingBar.numStars = it.rating.toString().toInt()
+                ratingBar.rating = 5f  //it.rating.toString().toFloat()
             }
         }
 

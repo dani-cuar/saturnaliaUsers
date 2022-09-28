@@ -5,7 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.saturnaliausers.R
+import com.example.saturnaliausers.databinding.EventosItemBinding
 import com.example.saturnaliausers.databinding.RecomendadosItemBinding
+import com.example.saturnaliausers.model.Disco
 import com.example.saturnaliausers.model.Home
 import java.util.ArrayList
 
@@ -14,7 +16,7 @@ class HomeAdapter (
 ): RecyclerView.Adapter<HomeAdapter.HomeViewHolder> () {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.recomendados_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.eventos_item, parent, false)
         return HomeViewHolder(view)
     }
 
@@ -34,10 +36,14 @@ class HomeAdapter (
 
     class HomeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
-        private val binding = RecomendadosItemBinding.bind(itemView)
+        private val binding = EventosItemBinding.bind(itemView)
         fun bind(home: Home){
             with(binding){
-                titleDisco.text = home.nombre
+                coverTextView2.text = home.cover
+                fechaTextView3.text = home.date
+                descriptionTextView4.text = home.description
+                nameEventsTextView.text = home.name
+                horaTextView5.text = home.time
             }
         }
     }

@@ -64,7 +64,7 @@ class discotecasFragment : Fragment() {
         with(discotecasBinding) {
 
             eventButton.setOnClickListener {
-                findNavController().navigate(discotecasFragmentDirections.actionNavigationDiscotecasToNavigationEventos())
+                findNavController().navigate(discotecasFragmentDirections.actionNavigationDiscotecasToNavigationEventos(disco))
             }
             cartaButton.setOnClickListener {
                 findNavController().navigate(discotecasFragmentDirections.actionNavigationDiscotecasToNavigationCarta(disco))

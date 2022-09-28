@@ -11,9 +11,9 @@ class EventosRepository {
 
     private var db = Firebase.firestore
 
-    suspend fun searchEvento(): ResourceRemote<QuerySnapshot?>{
+    suspend fun searchEvento(discoId: String): ResourceRemote<QuerySnapshot?>{
         return try {
-            val docRef = db.collection("discos").document("ATUB0NVpN1YxVq7ae781qNsILoc2").collection("Events")
+            val docRef = db.collection("discos").document(discoId).collection("Events")
             val result = docRef?.get()?.await()
             ResourceRemote.Success(data = result)
         } catch (e: FirebaseFirestoreException){

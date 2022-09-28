@@ -7,4 +7,5 @@ data class Eventos(
     var id: String? = null,
     var name: String? = null,
     var time: String? = null,
+    var urlPhoto: String? = null,
 )

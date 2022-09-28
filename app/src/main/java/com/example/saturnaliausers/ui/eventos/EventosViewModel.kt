@@ -21,9 +21,9 @@ class EventosViewModel : ViewModel() {
     private val _eventoList: MutableLiveData<ArrayList<Eventos>> = MutableLiveData()
     val eventoList: LiveData<ArrayList<Eventos>> = _eventoList
 
-    fun loadEventos() {
+    fun loadEventos(discoId: String) {
         viewModelScope.launch {
-            var result = eventosRepository.searchEvento()
+            var result = eventosRepository.searchEvento(discoId)
             result.let { resourceRemote ->
                 when (resourceRemote){
                     is ResourceRemote.Success -> {

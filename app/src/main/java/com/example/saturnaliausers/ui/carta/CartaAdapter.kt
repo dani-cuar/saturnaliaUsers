@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.saturnaliausers.R
 import com.example.saturnaliausers.databinding.CartaItemBinding
 import com.example.saturnaliausers.model.Carta
+import com.squareup.picasso.Picasso
 import java.util.ArrayList
 
 class CartaAdapter(
@@ -39,6 +40,8 @@ class CartaAdapter(
             with(binding){
                 nameTextView.text = carta.productName
                 precioTextView3.text = carta.productPrice.toString()
+                if(carta.urlPhoto != null)
+                    Picasso.get().load(carta.urlPhoto).into(imageView4)
             }
         }
     }

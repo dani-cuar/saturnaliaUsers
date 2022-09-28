@@ -69,7 +69,11 @@
         android:id="@+id/navigation_eventos"
         android:name="com.example.saturnaliausers.ui.eventos.eventosFragment"
         android:label="@string/event"
-        tools:layout="@layout/fragment_eventos" />
+        tools:layout="@layout/fragment_eventos" >
+        <argument
+            android:name="disco"
+            app:argType="com.example.saturnaliausers.model.Disco" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_resena"
         android:name="com.example.saturnaliausers.ui.reseña.resenaFragment"

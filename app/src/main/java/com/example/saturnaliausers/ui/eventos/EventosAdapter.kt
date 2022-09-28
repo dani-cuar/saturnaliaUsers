@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.saturnaliausers.R
 import com.example.saturnaliausers.databinding.EventosItemBinding
 import com.example.saturnaliausers.model.Eventos
+import com.squareup.picasso.Picasso
 import java.util.ArrayList
 
 class EventosAdapter (
@@ -42,6 +43,8 @@ class EventosAdapter (
                 fechaTextView3.text = eventos.date
                 descriptionTextView4.text = eventos.description
                 horaTextView5.text = eventos.time
+                if(eventos.urlPhoto != null)
+                    Picasso.get().load(eventos.urlPhoto).into(imageView3)
             }
         }
     }

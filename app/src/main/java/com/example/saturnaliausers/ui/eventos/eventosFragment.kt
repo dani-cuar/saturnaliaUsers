@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.saturnaliausers.databinding.FragmentEventosBinding
@@ -18,6 +19,7 @@ class eventosFragment : Fragment() {
     private lateinit var eventosBinding: FragmentEventosBinding
     private lateinit var eventosViewModel: EventosViewModel
     private lateinit var eventosAdapter: EventosAdapter
+    private val args: eventosFragmentArgs by navArgs()
     private var eventosList: ArrayList<Eventos> = ArrayList()
 
     override fun onCreateView(
@@ -27,7 +29,9 @@ class eventosFragment : Fragment() {
         eventosBinding = FragmentEventosBinding.inflate(inflater, container, false)
         eventosViewModel = ViewModelProvider(this)[EventosViewModel::class.java]
 
-        eventosViewModel.loadEventos()
+        var disco = args.disco
+
+        eventosViewModel.loadEventos(disco.uid!!)
 
 
 

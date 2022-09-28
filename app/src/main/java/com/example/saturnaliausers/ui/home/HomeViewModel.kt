@@ -32,6 +32,7 @@ class HomeViewModel : ViewModel() {
 
     fun loadEventos() {
         viewModelScope.launch {
+            eventosList.clear()
             var result = eventosRepository.loadEventRecomend()
             result.let { resourceRemote ->
                 when (resourceRemote){

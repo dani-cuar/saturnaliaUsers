@@ -53,7 +53,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/events_recomended_recyclerview"
-        android:layout_width="369dp"
+        android:layout_width="0dp"
         android:layout_height="319dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
